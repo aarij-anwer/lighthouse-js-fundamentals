@@ -104,6 +104,7 @@ var cry = function(){
 cry();
 */
 
+/*
 // don't change this code
 // emotions() function definition
 function emotions(myString, myFunc) {
@@ -114,4 +115,61 @@ function emotions(myString, myFunc) {
 // Call the emotions() function with two arguments
 // Argument 1 - "happy" string
 // Argument 2 - an inline function expression
+*/
 
+const chooseStations = function chooseStations(stations) {
+  let name;
+  let capacity;
+  let type;
+  let eligiblity = []; 
+
+  for (let i = 0; i < stations.length; i++) {
+    name = stations[i][0];
+    capacity = stations[i][1];
+    type = stations[i][2];
+
+    if (capacity >= 20 && (type === 'school' || type === 'community centre')) {
+      eligiblity[eligiblity.length] = name;
+    }
+  }
+  return eligiblity;
+}
+
+const stations = [
+  ['Big Bear Donair', 10, 'restaurant'],
+  ['Bright Lights Elementary', 50, 'school'],
+  ['Moose Mountain Community Centre', 45, 'community centre']
+];
+
+console.log(chooseStations(stations));
+
+const finalPosition = function (moves) {
+  let x = 0;
+  let y = 0;
+
+  for (let i = 0; i < moves.length; i++) {
+    moves[i] === 'north' ? y++ : y;
+    moves[i] === 'south' ? y-- : y;
+    moves[i] === 'east' ? x++ : x;
+    moves[i] === 'west' ? x-- : x;
+  }
+  let final = [x,y];
+  return final;
+}
+
+const moves = ['north', 'north', 'west', 'west', 'north', 'east','north']  
+
+console.log(finalPosition(moves));
+
+
+const ageCalculator = function(name, yearOfBirth, currentYear) {
+  if (yearOfBirth > currentYear) {
+    return 'Year of birth cannot be after the current year!';
+  }
+  
+  let age = currentYear - yearOfBirth;
+  return name + ' is ' + age + ' years old.';
+}
+
+console.log(ageCalculator("Miranda", 1983, 2015));
+console.log(ageCalculator("Ferdinand", 1988, 2015));
