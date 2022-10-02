@@ -214,7 +214,7 @@ console.log(calculateCircleArea(10)); // should print 314.159...
 console.log(calculateCircleArea(3.5)); // should print 38.484...
 console.log(calculateCircleArea(-1)); // should print undefined
 */
-
+/*
 var prices = [1.23, 48.11, 90.11, 8.50, 9.99, 1.00, 1.10, 67.00];
 prices[0] = 10;
 prices[2] = 10;
@@ -306,4 +306,35 @@ const range = function(start, end, step) {
 
 console.log(range(0, 10, 2));
 console.log(range(10, 30, 5));
-console.log(range(-5, 2, 3));
+console.log(range(-5, 2, 3));*/
+
+const lastIndexOf = function (arr, val) {
+  let answer = -1;
+
+  arr.forEach(function(element,index) {
+    if (element === val) {
+      answer = index;
+    }
+  });
+  
+  return answer;
+}
+
+console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 1), "=?", 3);
+console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 2), "=?", 4);
+console.log(lastIndexOf([ 0, 1, 4, 1, 2 ], 3), "=?", -1);
+console.log(lastIndexOf([ 5, 5, 5 ], 5), "=?", 2);
+console.log(lastIndexOf([], 3), "=?", -1);
+
+const concat = function (arr1, arr2) {
+  arr2.forEach(function(element, index) {
+    arr1.push(element);
+  });
+
+  return arr1;
+}
+
+console.log(concat([ 1, 2, 3 ], [ 4, 5, 6 ]), "=?", [ 1, 2, 3, 4, 5, 6 ]);
+console.log(concat([ 0, 3, 1 ], [ 9, 7, 2 ]), "=?", [ 0, 3, 1, 9, 7, 2 ]);
+console.log(concat([], [ 9, 7, 2 ]), "=?", [ 9, 7, 2 ]);
+console.log(concat([ 5, 10 ], []), "=?", [ 5, 10 ]);
