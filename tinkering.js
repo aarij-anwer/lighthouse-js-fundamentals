@@ -338,3 +338,89 @@ console.log(concat([ 1, 2, 3 ], [ 4, 5, 6 ]), "=?", [ 1, 2, 3, 4, 5, 6 ]);
 console.log(concat([ 0, 3, 1 ], [ 9, 7, 2 ]), "=?", [ 0, 3, 1, 9, 7, 2 ]);
 console.log(concat([], [ 9, 7, 2 ]), "=?", [ 9, 7, 2 ]);
 console.log(concat([ 5, 10 ], []), "=?", [ 5, 10 ]);
+
+var umbrella = { 
+  color: "pink",
+  isOpen: false,
+  open: function() { 
+    if (umbrella.isOpen === true) {
+      return "The umbrella is already opened!";
+    } else {
+      umbrella.isOpen = true;
+      return "Julia opens the umbrella!";
+    }
+   },
+
+   close: function() {
+    if (umbrella.isOpen === true) {
+      umbrella.isOpen = false;
+      return "Julia closes the umbrella";
+    } else {
+      return "The umbrella is already closed!";
+    }
+   }
+};
+
+var breakfast = {
+  name: "The Lumberjack",
+  price: "$9.95",
+  ingredients: ["eggs", "sausage", "toast", "hashbrowns", "pancakes"]
+};
+
+console.log(breakfast);
+
+var savingsAccount = {
+  balance: 1000,
+  interestRatePercent: 1,
+  deposit: function addMoney(amount) {
+    if (amount > 0) {
+      savingsAccount.balance += amount;
+    }
+  },
+  withdraw: function removeMoney(amount) {
+    var verifyBalance = savingsAccount.balance - amount;
+    if (amount > 0 && verifyBalance >= 0) {
+      savingsAccount.balance -= amount;
+    }
+  },
+  printAccountSummary: function() {
+    return 'Welcome!\nYour balance is currently $' + savingsAccount.balance + ' and your interest rate is ' + savingsAccount.interestRatePercent + '%.';
+  }
+};
+
+console.log(savingsAccount.printAccountSummary());
+
+
+var facebookProfile = {
+  name: "Aarij Anwer",
+  friends: 10,
+  messages: ["Post 1", "Post 2", "Post 3"],
+
+  postMessage: function(message) {
+    return this.messages.push(message);
+  },
+
+  deleteMessage: function(index) {
+    return this.messages.splice(index, 1);
+  },
+
+  addFriend: function() {
+    return this.friends++;
+  },
+
+  removeFriend: function() {
+    return this.friends--;
+  }
+};
+
+var donuts = [
+  { type: "Jelly", cost: 1.22 },
+  { type: "Chocolate", cost: 2.45 },
+  { type: "Cider", cost: 1.59 },
+  { type: "Boston Cream", cost: 5.99 }
+];
+
+donuts.forEach(function(element,index) {
+  console.log(element.type + ' donuts cost $' + element.cost + ' each');
+});
+
