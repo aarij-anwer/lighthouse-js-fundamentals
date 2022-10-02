@@ -285,3 +285,25 @@ for (let i = 0; i < numbers.length; i++) {
 }
 
 console.log(numbers);
+
+
+const range = function(start, end, step) {
+  let answer = [];
+  if (start == undefined || end == undefined || step == undefined || start > end || step <= 0) {
+    return answer;
+  }
+
+  let i = 0;
+
+  while (start <= end) {
+    answer[i] = start;
+    start += step;
+    i++;
+  }
+
+  return answer;
+};
+
+console.log(range(0, 10, 2));
+console.log(range(10, 30, 5));
+console.log(range(-5, 2, 3));
