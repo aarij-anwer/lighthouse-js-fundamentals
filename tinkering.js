@@ -307,7 +307,7 @@ const range = function(start, end, step) {
 console.log(range(0, 10, 2));
 console.log(range(10, 30, 5));
 console.log(range(-5, 2, 3));*/
-
+/*
 const lastIndexOf = function (arr, val) {
   let answer = -1;
 
@@ -424,3 +424,173 @@ donuts.forEach(function(element,index) {
   console.log(element.type + ' donuts cost $' + element.cost + ' each');
 });
 
+function smartGarbage(trash, bins) {
+  var returnGarbage = {
+    waste: bins.waste,
+    recycling: bins.recycling,
+    compost: bins.compost
+  }
+
+  if (trash === "waste") {
+    returnGarbage.waste++;
+  } else if (trash === "recycling") {
+    returnGarbage.recycling++;
+  } else if (trash === "compost") {
+    returnGarbage.compost++;
+  }
+  return returnGarbage;
+}
+
+console.log(smartGarbage('recycling', { waste: 4, recycling: 2, compost: 5 }));
+*/
+/*
+const carPassing = function(cars, speed) {
+  var foo = {
+    time: Date.now(),
+    speed: speed
+  }
+//  console.log(cars);
+//  console.log(foo);
+  
+  cars.push(foo);
+  //console.log(cars);
+  return cars;
+}
+
+const cars = [
+  {
+    time: 1568329654807,
+    speed: 40,
+  },
+  {
+    time: 1568329821632,
+    speed: 42,
+  },
+  {
+    time: 1568331115463,
+    speed: 35
+  }
+]
+
+const speed = 38
+
+console.log(carPassing(cars, speed));*/
+
+/*
+const judgeVegetable = function (vegetables, metric) {
+  let foo;
+  let bar;
+  let metricArray = [];
+  let max = -1;
+  let loc;
+
+
+  for (let i = 0; i < vegetables.length; i++) {
+     foo = Object.entries(vegetables[i]);
+     //console.log(foo);
+     for (let j = 0; j < foo.length; j++) {
+      if (foo[j][0] === metric) {
+        metricArray[metricArray.length] = foo[j][1];
+        if (foo[j][1] > max) {
+          max = foo[j][1];
+          loc = j;
+        }
+      }
+    }
+  }
+
+//  console.log(metricArray);
+//  console.log(loc);
+//  console.log(max);
+  return vegetables[loc-1].submitter;
+}
+
+const vegetables = [
+  {
+    submitter: 'Old Man Franklin',
+    d: 10,
+    plumpness: 5
+  },
+  {
+    submitter: 'Sally Tomato-Grower',
+    d: 2,
+    plumpness: 8
+  },
+  {
+    submitter: 'Hamid Hamidson',
+    d: 4,
+    plumpness: 3
+  }
+]
+
+const metric = 'd'
+console.log(judgeVegetable(vegetables, metric));
+judgeVegetable(vegetables, metric);
+
+const metric2 = 'plumpness'
+judgeVegetable(vegetables, metric2);
+console.log(judgeVegetable(vegetables, metric2));
+
+/*
+
+const judgeVegetable = function (vegetables, metric) {
+  let foo;
+  let max;
+
+  if (metric === "redness") {
+    max = vegetables[0].redness;
+    foo = vegetables[0].submitter;
+    vegetables.forEach(function(element, index) {
+      if (element.redness > max) {
+        foo = element.submitter;
+        max = element.redness;
+      }
+    });
+  } else if (metric === "plumpness") {
+    max = vegetables[0].plumpness;    
+    foo = vegetables[0].submitter;
+    vegetables.forEach(function(element, index) {
+      if (element.plumpness > max) {
+        foo = element.submitter;
+        max = element.plumpness;
+      }
+    });
+  }
+
+  return foo;
+};*/
+
+const vegetables = [
+  {
+    submitter: 'Old Man Franklin',
+    redness: 10,
+    plumpness: 5
+  },
+  {
+    submitter: 'Sally Tomato-Grower',
+    redness: 2,
+    plumpness: 8
+  },
+  {
+    submitter: 'Hamid Hamidson',
+    redness: 4,
+    plumpness: 3
+  }
+]
+
+const metric = 'plumpness';
+const judgeVegetable = function (vegetables, metric) {
+  let max = 0;
+  let index = 0;
+
+  for (let i = 0; i < vegetables.length; i++) {
+    //console.log(vegetables[i][metric]);
+    if (vegetables[i][metric] > max)
+    {
+      max = vegetables[i][metric];
+      index =  i;
+    }
+  }
+  return vegetables[index].submitter;
+}
+console.log(judgeVegetable(vegetables, metric));
