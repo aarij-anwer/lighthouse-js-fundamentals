@@ -559,7 +559,7 @@ const judgeVegetable = function (vegetables, metric) {
 
   return foo;
 };*/
-
+/*
 const vegetables = [
   {
     submitter: 'Old Man Franklin',
@@ -594,3 +594,195 @@ const judgeVegetable = function (vegetables, metric) {
   return vegetables[index].submitter;
 }
 console.log(judgeVegetable(vegetables, metric));
+
+const sumLargestNumbers = function(data) {
+  let max1 = 0;
+  let max2 = 0;
+  data.forEach(function(element,index) {
+    if (element > max1) {
+      max2 = max1;
+      max1 = element;
+    } else if (element > max2) {
+      max2 = element;
+    } 
+  });
+  return max1 + max2;
+}
+
+console.log(sumLargestNumbers([1, 10]));
+console.log(sumLargestNumbers([1, 2, 3]));
+console.log(sumLargestNumbers([10, 4, 34, 6, 92, 2]));
+*/
+
+/*
+const conditionalSum = function(values, condition) {
+  let answer = 0;
+  values.forEach(function(element, index) {
+    if (condition === 'even' && element % 2 === 0) {
+      answer += element;
+    } else if (condition === 'odd' && element % 2 > 0) {
+      answer += element;
+    }
+  });
+  return answer;
+}
+
+console.log(conditionalSum([1, 2, 3, 4, 5], "even"));
+console.log(conditionalSum([1, 2, 3, 4, 5], "odd"));
+console.log(conditionalSum([13, 88, 12, 44, 99], "even"));
+console.log(conditionalSum([], "odd")); */
+
+/*
+const numberOfVowels = function(data) {
+  let answer = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] === 'a' || data[i] === 'e' || data[i] === 'i' || data[i] === 'o' || data[i] === 'u')
+    {
+      answer++;
+    }
+  }
+  return answer;
+};
+
+console.log(numberOfVowels("orange"));
+console.log(numberOfVowels("lighthouse labs"));
+console.log(numberOfVowels("aeiou"));*/
+/*
+const instructorWithLongestName = function(instructors) {
+  let instructorName;
+  let courseName;
+  let max = 0;
+  let winner;
+
+  instructors.forEach(element => {
+    instructorName = element.name;
+    courseName = element.course;
+    //console.log(instructorName);
+    //console.log(courseName);
+
+    if (instructorName.length > max) {
+      max = instructorName.length;
+      winner = {instructorName, courseName};
+    }
+  });
+  return winner;
+};
+
+console.log(instructorWithLongestName([
+  {name: "Samuel", course: "iOS"},
+  {name: "Jeremiah", course: "Web"},
+  {name: "Jeremiah", course: "Data"},
+  {name: "Donald", course: "Web"}
+]));
+console.log(instructorWithLongestName([
+  {name: "Matthew", course: "Web"},
+  {name: "David", course: "iOS"},
+  {name: "Domascus", course: "Web"}
+]));*/
+
+/*
+const urlEncode = function(text) {
+  // Put your solution here
+  return (text.trim()).replace(" ","%20");
+};
+
+console.log(urlEncode("Lighthouse Labs"));
+console.log(urlEncode(" Lighthouse Labs "));
+console.log(urlEncode("blue is greener than purple for sure"));*/
+/*
+const whereCanIPark = function (spots, vehicle) {
+  // Code here!
+  let coordinates = [];
+
+  for (let i = 0; i < spots.length; i++) {
+    for (let j = 0; j < spots[i].length; j++) {
+      if (vehicle === 'regular' && spots[i][j] === 'R') {
+        //console.log(i + ", " + j);
+        coordinates[0] = j;
+        coordinates[1] = i;
+        return coordinates;
+      } else if (vehicle === 'small' && (spots[i][j] === 'R' || spots[i][j] === 'S')) {
+        //console.log(i + ", " + j);
+        coordinates[0] = j;
+        coordinates[1] = i;
+        return coordinates;
+      } else if (vehicle === 'motorcycle' && (spots[i][j] === 'R' || spots[i][j] === 'S' || spots[i][j] === 'M')) {
+        //console.log(i + ", " + j);
+        coordinates[0] = j;
+        coordinates[1] = i;
+        return coordinates;
+      }
+    }
+  }
+  return false;
+};
+
+console.log(whereCanIPark(
+  [
+    // COLUMNS ARE X
+    // 0    1    2    3    4    5
+    ['s', 's', 's', 'S', 'R', 'M'], // 0 ROWS ARE Y
+    ['s', 'M', 's', 'S', 'r', 'M'], // 1
+    ['s', 'M', 's', 'S', 'r', 'm'], // 2
+    ['S', 'r', 's', 'm', 'r', 'M'], // 3
+    ['S', 'r', 's', 'm', 'r', 'M'], // 4
+    ['S', 'r', 'S', 'M', 'M', 'S']  // 5
+  ],
+  'regular'
+));
+
+console.log(whereCanIPark(
+  [
+    ['M', 'M', 'M', 'M'],
+    ['M', 's', 'M', 'M'],
+    ['M', 'M', 'M', 'M'],
+    ['M', 'M', 'r', 'M']
+  ],
+  'small'
+));
+
+console.log(whereCanIPark(
+  [
+    ['s', 's', 's', 's', 's', 's'],
+    ['s', 'm', 's', 'S', 'r', 's'],
+    ['s', 'm', 's', 'S', 'r', 's'],
+    ['S', 'r', 's', 'm', 'r', 's'],
+    ['S', 'r', 's', 'm', 'R', 's'],
+    ['S', 'r', 'S', 'M', 'm', 'S']
+  ],
+  'motorcycle'
+))*/
+
+const checkAir = function (samples, threshold) {
+  // Code here!
+  let dirtyCounter = 0;
+
+  samples.forEach(element => { 
+    if (element === 'dirty') {
+      dirtyCounter++;
+    }
+  });
+
+  let quality = dirtyCounter/samples.length;
+  if (quality >= threshold) {
+    return 'Polluted';
+  }
+
+  return 'Clean';
+
+};
+
+console.log(checkAir(
+  ['clean', 'clean', 'dirty', 'clean', 'dirty', 'clean', 'clean', 'dirty', 'clean', 'dirty'],
+  0.3
+));
+
+console.log(checkAir(
+  ['dirty', 'dirty', 'dirty', 'dirty', 'clean'],
+  0.25
+));
+
+console.log(checkAir(
+  ['clean', 'dirty', 'clean', 'dirty', 'clean', 'dirty', 'clean'],
+  0.9
+))
